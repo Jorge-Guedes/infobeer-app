@@ -1,0 +1,113 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { IBeerData } from "../../types/interfaces";
+import { ButtonRandom } from "../../components/ButtonRandom/ButtonRandom";
+
+type BeerInfoViewProps = {
+  beerPop?: IBeerData;
+  reloadBeer: () => void;
+};
+
+const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
+  const { id } = useParams();
+  const { category } = useParams();
+
+  const [beer, setBeer] = useState<IBeerData>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let currentBeer;
+        if (beerPop) {
+          currentBeer = beerPop;
+        } else {
+          const jsonBasePath = "../../../public/data/";
+          const jsonPath =
+            jsonBasePath + category?.split("-").join("_") + ".json";
+          console.log(jsonPath);
+          if (jsonPath) {
+            const response = await fetch(jsonPath);
+            const jsonData = await response.json();
+
+            currentBeer = jsonData.find((beer: IBeerData) => beer._id === id);
+
+            console.log(currentBeer);
+          }
+        }
+        setBeer(currentBeer);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const renderInfo: { name: string; property: keyof IBeerData }[] = [
+    { name: "Origen:", property: "origin" },
+    { name: "Color:", property: "color" },
+    { name: "Estilo:", property: "style" },
+    { name: "Grado:", property: "grade" },
+    { name: "IBU:", property: "IBU" },
+    { name: "Sabor:", property: "flavor" },
+  ];
+
+  return (
+    <div className="flex flex-col justify-center">
+      <div className="flex items-center justify-center gap-2 p-2">
+        {!!beerPop && <ButtonRandom randomBeerReload={reloadBeer} />}
+        <h1 className="leprechaun-hats text-[35px] text-gray-600">
+          {beer?.name}
+        </h1>
+      </div>
+      <div className="flex lg:flex-row flex-col justify-center self-center w-[80%] lg:gap-20 gap-10 p-5">
+        <div className="lg:min-w-[35%] max-w-[60%] lg:self-start self-center">
+          <img
+            src={beer?.img}
+            alt={beer?.name}
+            className="rounded-lg border-[2px] border-amber-300"
+          />
+        </div>
+        <div className="flex flex-col self-center lg:max-w-[40%] lg:self-start md:gap-6 gap-12 h-full junius-irish text-gray-600 text-[20px]">
+          <div className="flex flex-col gap-6 p-5">
+            <div className="flex gap-4 items-center">
+              <div className="flex gap-1">
+                <h3>Fabricante:</h3>
+                <p>{beer?.maker}</p>
+              </div>
+              <div className="w-12">
+                <img
+                  src={beer?.maker_logo}
+                  alt={beer?.maker}
+                  className="rounded-lg border-[2px] border-amber-900 p-1"
+                />
+              </div>
+            </div>
+            {renderInfo.map((item) => (
+              <div className="flex gap-2 items-center">
+                <div className="flex gap-1">
+                  <h3>{item.name}</h3>
+                  <p>{beer?.[item.property]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {beer?.ingredients && beer.ingredients.length > 13 && (
+            <div>
+              <div className="flex items-center h-full p-5">
+                <h3>{beer.ingredients}</h3>
+              </div>
+            </div>
+          )}
+          {beer?.graphic_color != "" && (
+            <div className="p-5">
+              <img src={beer?.graphic_color} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BeerInfoView;

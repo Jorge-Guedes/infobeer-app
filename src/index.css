@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "LeprechaunHats";
+  src: url("./assets/fonts/leprechaun-hats-font/LeprechaunHats-vLy.ttf");
+}
+.leprechaun-hats {
+  font-family: "LeprechaunHats", sans-serif;
+}
+
+@font-face {
+  font-family: "TreasureMapDeadhand";
+  src: url("./assets/fonts/treasure-map-deadhand-font/TreasureMapDeadhand-yLA3.ttf");
+}
+.treasure-map-deadhand {
+  font-family: "TreasureMapDeadhand", sans-serif;
+}
+
+@font-face {
+  font-family: "JuniusIrish";
+  src: "./assets/fonts/junius-irish/JuniusIrish.ttf";
+}
+.junius-irish {
+  font-family: "JuniusIrish", "sans-serif";
+}
