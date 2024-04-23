@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "IPAs",
+    "image": "./src/assets/category_images/ipa.jpg",
+    "data": "../../../public/data/IPAs.json"
+  },
+  {
+    "id": "2",
+    "name": "Lager",
+    "image": "./src/assets/category_images/lager.jpg",
+    "data": "../../../public/data/Lager.json"
+  },
+  {
+    "id": "3",
+    "name": "Porter",
+    "image": "./src/assets/category_images/porter.jpg",
+    "data": "../../../public/data/Porter.json"
+  },
+  {
+    "id": "4",
+    "name": "Trigo",
+    "image": "./src/assets/category_images/trigo.webp",
+    "data": "../../../public/data/Trigo.json"
+  },
+  {
+    "id": "5",
+    "name": "Lambic",
+    "image": "./src/assets/category_images/lambic.jpg",
+    "data": "../../../public/data/Lambic.json"
+  },
+  {
+    "id": "6",
+    "name": "Pale Ale",
+    "image": "./src/assets/category_images/pale_ale.jpg",
+    "data": "../../../public/data/Pale_Ale.json"
+  },
+  {
+    "id": "7",
+    "name": "Brown & Amber Ale",
+    "image": "./src/assets/category_images/brown_amber.jpg",
+    "data": "../../../public/data/Brown_&_Amber_Ale.json"
+  },
+  {
+    "id": "8",
+    "name": "Dubbel",
+    "image": "./src/assets/category_images/dubbel.webp",
+    "data": "../../../public/data/Dubbel.json"
+  },
+  {
+    "id": "9",
+    "name": "Tripel",
+    "image": "./src/assets/category_images/tripel.webp",
+    "data": "../../../public/data/Tripel.json"
+  },
+  {
+    "id": "10",
+    "name": "Belgian Dark Strong Ale & Quadrupel",
+    "image": "./src/assets/category_images/belgian_dark.webp",
+    "data": "../../../public/data/Belgian_Dark_Strong_Ale_&_Quadrupel.json"
+  }
+]
