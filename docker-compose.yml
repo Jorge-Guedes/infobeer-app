@@ -1,0 +1,16 @@
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: beers_db_container
+    environment:
+      POSTGRES_USER: userbeer
+      POSTGRES_PASSWORD: passbeer
+      POSTGRES_DB: beers_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_beers_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_beers_data:
