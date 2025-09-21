@@ -1,10 +1,3 @@
-/* export interface ICategory {
-  id: string;
-  name: string;
-  image: string;
-  data: string;
-} */
-
 export interface ICategory {
   id: string;
   name: string;
@@ -13,7 +6,7 @@ export interface ICategory {
 }
 
 export interface IBeerData {
-  _id: string;
+  id: string;
   name: string;
   img: string;
   maker: string;

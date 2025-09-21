@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
         element: <BeerListView />,
       },
       {
-        path: "/category/:category/beer/:id",
+        path: "/beer/:id",
         element: <BeerInfoView />,
       },
       {

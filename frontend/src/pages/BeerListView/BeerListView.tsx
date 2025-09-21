@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import categories from "../../../public/data/categoryBeer.json";
 import { IBeerData } from "../../types/interfaces";
 import BeerCard from "../../components/BeerCard/BeerCard";
+import axios from "axios";
 
 const BeerListView = () => {
-  const { id } = useParams();
-  const { category } = useParams();
+  const { id: categoryId } = useParams();
   const [beerList, setBeerList] = useState<IBeerData[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 14;
@@ -18,51 +18,53 @@ const BeerListView = () => {
   const beersToShow = beerList.slice(startIndex, endIndex);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchBeersByCategory = async () => {
       try {
-        const currentCategory = categories.find(
-          (category) => category.id === id
-        );
-        if (currentCategory) {
-          const response = await fetch(currentCategory.data);
-          const jsonData = await response.json();
-          setBeerList(jsonData);
+        if (categoryId) {
+          const res = await axios.get(
+            `http://localhost:3000/api/beers/beers-by-category/${categoryId}`
+          );
+          setBeerList(res.data);
         }
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching beers:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchData();
-  }, []);
+    fetchBeersByCategory();
+  }, [categoryId]);
+
+  if (loading) return <p>Cargando datos...</p>;
 
   return (
     <>
       <div className="h-full flex flex-col p-3">
-      <div className="flex flex-wrap justify-around gap-4 m-6">
-        {beersToShow.map((beer) => (
-          <Link key={beer._id} to={`/category/${category}/beer/${beer._id}`}>
-            <BeerCard beer={beer} />
-          </Link>
-        ))}
-      </div>
-      <div className="flex justify-center items-center mt-4">
-        <button
-          onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
-          disabled={currentPage === 1}
-          className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer hover:scale-110 duration-150"
-        >
-          Anterior
-        </button>
-        <p>{`${currentPage} / ${totalPages}`}</p>
-        <button
-          onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
-          disabled={endIndex >= beerList.length}
-          className="ml-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer hover:scale-110 duration-150"
-        >
-          Siguiente
-        </button>
-      </div>
+        <div className="flex flex-wrap justify-around gap-4 m-6">
+          {beersToShow.map((beer) => (
+            <Link key={beer.id} to={`/beer/${beer.id}`}>
+              <BeerCard beer={beer} />
+            </Link>
+          ))}
+        </div>
+        <div className="flex justify-center items-center mt-4">
+          <button
+            onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+            disabled={currentPage === 1}
+            className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer hover:scale-110 duration-150"
+          >
+            Anterior
+          </button>
+          <p>{`${currentPage} / ${totalPages}`}</p>
+          <button
+            onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+            disabled={endIndex >= beerList.length}
+            className="ml-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer hover:scale-110 duration-150"
+          >
+            Siguiente
+          </button>
+        </div>
       </div>
     </>
   );
