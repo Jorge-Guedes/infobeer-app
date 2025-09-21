@@ -45,13 +45,13 @@ CREATE TABLE beers (
 -- INSERTs para tabla CATEGORIES
 -- ============================================
 
-INSERT INTO categories (name, description) VALUES ('Belgian_Dark_Strong_Ale_Quadrupel', 'Cervezas belgas oscuras, fuertes y complejas');
-INSERT INTO categories (name, description) VALUES ('Brown_Amber_Ale', 'Cervezas ámbar y marrones con sabores maltosos');
+INSERT INTO categories (name, description) VALUES ('Belgian Dark Strong Ale Quadrupel', 'Cervezas belgas oscuras, fuertes y complejas');
+INSERT INTO categories (name, description) VALUES ('Brown Amber Ale', 'Cervezas ámbar y marrones con sabores maltosos');
 INSERT INTO categories (name, description) VALUES ('Dubbel', 'Cervezas belgas de doble fermentación');
 INSERT INTO categories (name, description) VALUES ('IPA', 'India Pale Ale con alto amargor y aroma a lúpulo');
 INSERT INTO categories (name, description) VALUES ('Lager', 'Cervezas de fermentación baja, suaves y refrescantes');
 INSERT INTO categories (name, description) VALUES ('Lambic', 'Cervezas belgas de fermentación espontánea');
-INSERT INTO categories (name, description) VALUES ('Pale_Ale', 'Cervezas pale ale balanceadas');
+INSERT INTO categories (name, description) VALUES ('Pale Ale', 'Cervezas pale ale balanceadas');
 INSERT INTO categories (name, description) VALUES ('Porter', 'Cervezas oscuras con sabores a chocolate y café');
 INSERT INTO categories (name, description) VALUES ('Trigo', 'Cervezas de trigo turbias y cítricas');
 INSERT INTO categories (name, description) VALUES ('Tripel', 'Cervezas belgas triples, doradas y fuertes');
