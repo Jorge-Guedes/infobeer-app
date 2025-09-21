@@ -1,4 +1,14 @@
-import { getAllBeersByCategory } from "../models/beers.model.js";
+import { getAllBeers, getAllBeersByCategory } from "../models/beers.model.js";
+
+export const getBeers = async (req, res) => {
+  try {
+    const beers = await getAllBeers();
+    res.json(beers);
+  } catch (err) {
+    console.log("ERROR en getBeersByCategory:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 export const getBeersByCategory = async (req, res) => {
   try {
