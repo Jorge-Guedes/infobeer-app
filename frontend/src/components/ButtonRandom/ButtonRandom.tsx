@@ -1,19 +1,16 @@
 import { useState } from "react";
+import buttonBeer1 from "../../assets/buttonBeer1.jpg";
+import buttonBeer2 from "../../assets/buttonBeer2.jpg";
 
 type ButtonRandomProps = {
   randomBeerReload?: () => void;
 };
 
 export const ButtonRandom = ({ randomBeerReload }: ButtonRandomProps) => {
-  const [imageButton, setImageButton] = useState("src/assets/buttonBeer1.jpg");
+  const [imageButton, setImageButton] = useState(buttonBeer1);
 
-  const changeImage2 = () => {
-    setImageButton("src/assets/buttonBeer2.jpg");
-  };
-
-  const changeImage1 = () => {
-    setImageButton("src/assets/buttonBeer1.jpg");
-  };
+  const changeImage2 = () => setImageButton(buttonBeer2);
+  const changeImage1 = () => setImageButton(buttonBeer1);
 
   return (
     <div
