@@ -3,11 +3,13 @@ import {
   getBeers,
   getBeersByCategory,
   getRandom,
+  getBeer,
 } from "../controllers/beers.controller.js";
 
 const router = Router();
 
 router.get("/all-beers", getBeers);
+router.get("/:id", getBeer);
 router.get("/beers-by-category/:idCategory", getBeersByCategory);
 router.get("/random-beer", getRandom);
 

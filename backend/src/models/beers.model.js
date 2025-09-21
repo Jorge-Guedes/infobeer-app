@@ -5,6 +5,13 @@ export const getAllBeers = async () => {
   return rows;
 };
 
+export const getBeerById = async (beerId) => {
+  const { rows } = await pool.query("SELECT * FROM beers WHERE id = $1;", [
+    beerId,
+  ]);
+  return rows[0];
+};
+
 export const getAllBeersByCategory = async (categoryId) => {
   const { rows } = await pool.query(
     "SELECT * FROM beers WHERE category_id = $1;",
