@@ -4,18 +4,18 @@ import Header from "../components/Header/Header";
 
 const MainLayout = () => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <div className="fixed z-0 w-full">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-amber-50 via-yellow-100 to-yellow-200">
+      <header className="w-full bg-amber-600 text-amber-50 shadow-md">
         <Header />
-      </div>
+      </header>
 
-      <div className="flex-1 w-full bg-gradient-to-tr from-yellow-100 to-gray-200 pt-[60px]">
+      <main className="flex-1 w-full bg-gradient-to-tr">
         <Outlet />
-      </div>
+      </main>
 
-      <div className="w-full">
+      <footer className="w-full bg-amber-600 text-amber-50 mt-auto shadow-inner">
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 };
