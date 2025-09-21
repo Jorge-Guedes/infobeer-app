@@ -1,8 +1,15 @@
-export interface ICategory {
+/* export interface ICategory {
   id: string;
   name: string;
   image: string;
   data: string;
+} */
+
+export interface ICategory {
+  id: string;
+  name: string;
+  img: string;
+  description: string;
 }
 
 export interface IBeerData {
