@@ -10,37 +10,26 @@ type BeerInfoViewProps = {
 
 const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
   const { id } = useParams();
-  const { category } = useParams();
 
   const [beer, setBeer] = useState<IBeerData>();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchInfoBeer = async () => {
       try {
-        let currentBeer;
         if (beerPop) {
-          currentBeer = beerPop;
-        } else {
-          const jsonBasePath = "../../../public/data/";
-          const jsonPath =
-            jsonBasePath + category?.split("-").join("_") + ".json";
-          console.log(jsonPath);
-          if (jsonPath) {
-            const response = await fetch(jsonPath);
-            const jsonData = await response.json();
-
-            currentBeer = jsonData.find((beer: IBeerData) => beer._id === id);
-
-            console.log(currentBeer);
-          }
+          setBeer(beerPop);
+        } else if (id) {
+          const res = await axios.get<IBeerData>(
+            `http://localhost:3000/api/beers/${id}`
+          );
+          setBeer(res.data);
         }
-        setBeer(currentBeer);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching beer:", error);
       }
     };
 
-    fetchData();
+    fetchInfoBeer();
   }, []);
 
   const renderInfo: { name: string; property: keyof IBeerData }[] = [

@@ -46,7 +46,7 @@ CREATE TABLE beers (
 -- INSERTs para tabla CATEGORIES
 -- ============================================
 
-INSERT INTO categories (name, img, description) VALUES ('Belgian Dark Strong Ale Quadrupel','https://escerveza.com/cdn/shop/collections/belgian-dark-strong-ale-and-quadrupel-escerveza_large.jpg?v=1648892383' 'Cervezas belgas oscuras, fuertes y complejas');
+INSERT INTO categories (name, img, description) VALUES ('Belgian Dark Strong Ale Quadrupel','https://escerveza.com/cdn/shop/collections/belgian-dark-strong-ale-and-quadrupel-escerveza_large.jpg?v=1648892383', 'Cervezas belgas oscuras, fuertes y complejas');
 INSERT INTO categories (name, img, description) VALUES ('Brown Amber Ale','https://escerveza.com/cdn/shop/collections/brown-and-amber-ale-escerveza_large.jpg?v=1697406089', 'Cervezas ámbar y marrones con sabores maltosos');
 INSERT INTO categories (name, img, description) VALUES ('Dubbel','https://escerveza.com/cdn/shop/collections/dubbelescerveza_large.jpg?v=1697405428', 'Cervezas belgas de doble fermentación');
 INSERT INTO categories (name, img, description) VALUES ('IPA','https://escerveza.com/cdn/shop/collections/cervezas-ipaescerveza_large.jpg?v=1697405427', 'India Pale Ale con alto amargor y aroma a lúpulo');
@@ -55,7 +55,7 @@ INSERT INTO categories (name, img, description) VALUES ('Lambic','https://escerv
 INSERT INTO categories (name, img, description) VALUES ('Pale Ale','https://escerveza.com/cdn/shop/collections/pale-aleescerveza_large.jpg?v=1697405428', 'Cervezas pale ale balanceadas');
 INSERT INTO categories (name, img, description) VALUES ('Porter','https://escerveza.com/cdn/shop/collections/cervezas-porter-and-stout-escerveza_large.jpg?v=1648892397', 'Cervezas oscuras con sabores a chocolate y café');
 INSERT INTO categories (name, img, description) VALUES ('Trigo','https://escerveza.com/cdn/shop/collections/cervezas-de-trigo-o-weissbier-escerveza_large.jpg?v=1648892387', 'Cervezas de trigo turbias y cítricas');
-INSERT INTO categories (name, img, description) VALUES ('Tripel','https://escerveza.com/cdn/shop/collections/tripelescerveza_large.jpg?v=1697405427' 'Cervezas belgas triples, doradas y fuertes');
+INSERT INTO categories (name, img, description) VALUES ('Tripel','https://escerveza.com/cdn/shop/collections/tripelescerveza_large.jpg?v=1697405427', 'Cervezas belgas triples, doradas y fuertes');
 
 -- ============================================
 -- INSERTs para tabla BEERS
