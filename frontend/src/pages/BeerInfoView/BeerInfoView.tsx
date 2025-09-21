@@ -6,7 +6,7 @@ import axios from "axios";
 
 type BeerInfoViewProps = {
   beerPop?: IBeerData;
-  reloadBeer: () => void;
+  reloadBeer?: () => void;
 };
 
 const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {

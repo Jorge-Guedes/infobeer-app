@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type ButtonRandomProps = {
-  randomBeerReload: () => void;
+  randomBeerReload?: () => void;
 };
 
 export const ButtonRandom = ({ randomBeerReload }: ButtonRandomProps) => {
