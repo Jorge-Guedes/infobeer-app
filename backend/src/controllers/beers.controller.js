@@ -1,11 +1,15 @@
-import { getAllBeers, getAllBeersByCategory } from "../models/beers.model.js";
+import {
+  getAllBeers,
+  getAllBeersByCategory,
+  getRandomBeer,
+} from "../models/beers.model.js";
 
 export const getBeers = async (req, res) => {
   try {
     const beers = await getAllBeers();
     res.json(beers);
   } catch (err) {
-    console.log("ERROR en getBeersByCategory:", err);
+    console.log("ERROR en getBeers:", err);
     res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -17,6 +21,16 @@ export const getBeersByCategory = async (req, res) => {
     res.json(beers);
   } catch (err) {
     console.log("ERROR en getBeersByCategory:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const getRandom = async (req, res) => {
+  try {
+    const randomBeer = await getRandomBeer();
+    res.json(randomBeer);
+  } catch (err) {
+    console.log("ERROR en getRandom:", err);
     res.status(500).json({ message: "Internal server error" });
   }
 };
