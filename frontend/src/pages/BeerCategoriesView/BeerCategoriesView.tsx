@@ -1,6 +1,6 @@
 /* import categories from "../../../public/data/categoryBeer.json" */
 import axios from "axios";
-import { CategroyDisplay } from "../../components/CategoryDisplay/CategroyDisplay";
+import { CategoryDisplay } from "../../components/CategoryDisplay/CategoryDisplay";
 import { useState, useEffect } from "react";
 
 const BeerCategoriesView = () => {
@@ -28,7 +28,7 @@ const BeerCategoriesView = () => {
 
   return (
     <div className="h-full">
-      <CategroyDisplay categories={categories} />
+      <CategoryDisplay categories={categories} />
     </div>
   );
 };
