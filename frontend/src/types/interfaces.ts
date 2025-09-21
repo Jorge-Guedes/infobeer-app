@@ -15,7 +15,7 @@ export interface IBeerData {
   color: string;
   style: string;
   grade: string;
-  IBU: string;
+  ibu: string;
   flavor: string;
   graphic_color: string;
   ingredients: string;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IBeerData } from "../../types/interfaces";
 import { ButtonRandom } from "../../components/ButtonRandom/ButtonRandom";
+import axios from "axios";
 
 type BeerInfoViewProps = {
   beerPop?: IBeerData;
@@ -37,7 +38,7 @@ const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
     { name: "Color:", property: "color" },
     { name: "Estilo:", property: "style" },
     { name: "Grado:", property: "grade" },
-    { name: "IBU:", property: "IBU" },
+    { name: "IBU:", property: "ibu" },
     { name: "Sabor:", property: "flavor" },
   ];
 
