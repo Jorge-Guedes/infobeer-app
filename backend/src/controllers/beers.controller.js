@@ -43,6 +43,7 @@ export const getBeersByCategory = async (req, res) => {
 export const getRandom = async (req, res) => {
   try {
     const randomBeer = await getRandomBeer();
+    console.log(randomBeer);
     res.json(randomBeer);
   } catch (err) {
     console.log("ERROR en getRandom:", err);

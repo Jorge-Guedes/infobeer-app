@@ -9,8 +9,8 @@ import {
 const router = Router();
 
 router.get("/all-beers", getBeers);
-router.get("/:id", getBeer);
-router.get("/beers-by-category/:idCategory", getBeersByCategory);
 router.get("/random-beer", getRandom);
+router.get("/beers-by-category/:idCategory", getBeersByCategory);
+router.get("/:id", getBeer);
 
 export default router;
