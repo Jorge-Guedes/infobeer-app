@@ -14,14 +14,14 @@ export const ButtonRandom = ({ randomBeerReload }: ButtonRandomProps) => {
 
   return (
     <div
-      className="w-16 -rotate-90 hover:scale-125 hover:rotate-12 duration-150 border-[1px] border-black rounded-full absolute left-[15%]"
+      className="hidden lg:block lg:absolute lg:-rotate-90 hover:scale-125 hover:rotate-12 duration-150 border-[1px] border-black rounded-full lg:left-[13.5%]"
       onMouseEnter={changeImage2}
       onMouseLeave={changeImage1}
     >
       <img
         src={imageButton}
         alt="random_button_beer"
-        className="rounded-full cursor-pointer"
+        className="rounded-full cursor-pointer w-16 h-16"
         onClick={randomBeerReload}
       />
     </div>
