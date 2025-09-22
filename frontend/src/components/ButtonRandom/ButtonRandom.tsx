@@ -14,7 +14,7 @@ export const ButtonRandom = ({ randomBeerReload }: ButtonRandomProps) => {
 
   return (
     <div
-      className="w-12 -rotate-90 hover:scale-125 hover:rotate-12 duration-150 border-[1px] border-black rounded-full"
+      className="w-16 -rotate-90 hover:scale-125 hover:rotate-12 duration-150 border-[1px] border-black rounded-full absolute left-[15%]"
       onMouseEnter={changeImage2}
       onMouseLeave={changeImage1}
     >

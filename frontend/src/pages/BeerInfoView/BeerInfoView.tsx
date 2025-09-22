@@ -43,10 +43,10 @@ const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
   ];
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center pt-3">
       <div className="flex items-center justify-center gap-2 p-2">
         {!!beerPop && <ButtonRandom randomBeerReload={reloadBeer} />}
-        <h1 className="leprechaun-hats text-[35px] text-gray-600">
+        <h1 className="junius-irish font-semibold text-[35px] text-gray-600">
           {beer?.name}
         </h1>
       </div>
@@ -55,14 +55,14 @@ const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
           <img
             src={beer?.img}
             alt={beer?.name}
-            className="rounded-lg border-[2px] border-amber-300"
+            className="rounded-lg border-[2px] border-amber-600"
           />
         </div>
         <div className="flex flex-col self-center lg:max-w-[40%] lg:self-start md:gap-6 gap-12 h-full junius-irish text-gray-600 text-[20px]">
           <div className="flex flex-col gap-6 p-5">
             <div className="flex gap-4 items-center">
               <div className="flex gap-1">
-                <h3>Fabricante:</h3>
+                <h3 className="font-semibold">Fabricante:</h3>
                 <p>{beer?.maker}</p>
               </div>
               <div className="w-12">
@@ -76,7 +76,7 @@ const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
             {renderInfo.map((item) => (
               <div className="flex gap-2 items-center">
                 <div className="flex gap-1">
-                  <h3>{item.name}</h3>
+                  <h3 className="font-semibold">{item.name}</h3>
                   <p>{beer?.[item.property]}</p>
                 </div>
               </div>
@@ -85,7 +85,10 @@ const BeerInfoView = ({ beerPop, reloadBeer }: BeerInfoViewProps) => {
           {beer?.ingredients && beer.ingredients.length > 13 && (
             <div>
               <div className="flex items-center h-full p-5">
-                <h3>{beer.ingredients}</h3>
+                <h3 className="font-medium">
+                  <span className="font-semibold">Ingredientes:</span>
+                  {beer.ingredients.replace("Ingredientes:", "")}
+                </h3>
               </div>
             </div>
           )}

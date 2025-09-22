@@ -39,7 +39,7 @@ const BeerListView = () => {
   if (loading) return <p className="text-center mt-10">Cargando datos...</p>;
 
   return (
-    <div className="h-full flex flex-col p-3">
+    <div className="h-full flex flex-col pt-8 p-3">
       {/* Grid de cervezas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
         {beersToShow.map((beer) => (
