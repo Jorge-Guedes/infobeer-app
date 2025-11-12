@@ -1,3 +1,4 @@
+import React from "react";
 import { ICategory } from "../../types/interfaces";
 import { Link } from "react-router-dom";
 

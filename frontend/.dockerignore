@@ -6,8 +6,3 @@ README.md
 .env
 .DS_Store
 dist
-.eslintrc.cjs
-postcss.config.js
-tailwind.config.js
-tsconfig*
-vite.config.ts

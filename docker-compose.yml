@@ -1,8 +1,7 @@
-
 services:
   postgres:
     image: postgres:15
-    container_name: beers_db_container
+    container_name: infobeer_db_container
     environment:
       POSTGRES_USER: userbeer
       POSTGRES_PASSWORD: passbeer
@@ -10,7 +9,31 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_beers_data:/var/lib/postgresql/data
+      - infobeer_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+
+  backend:
+    build: ./backend
+    container_name: infobeer_backend_container
+    environment:
+      DB_USER: userbeer
+      DB_PASSWORD: passbeer
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: beers_db
+      SERVER_PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    container_name: infobeer_frontend_container
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
 volumes:
-  postgres_beers_data:
+  infobeer_data:

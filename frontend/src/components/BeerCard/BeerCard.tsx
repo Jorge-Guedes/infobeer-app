@@ -1,3 +1,4 @@
+import React from "react";
 import { IBeerData } from "../../types/interfaces";
 
 type BeerCardProps = {

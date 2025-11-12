@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import buttonBeer1 from "../../assets/buttonBeer1.jpg";
 import buttonBeer2 from "../../assets/buttonBeer2.jpg";

@@ -1,4 +1,4 @@
-/* import categories from "../../../public/data/categoryBeer.json" */
+import React from "react";
 import axios from "axios";
 import { CategoryDisplay } from "../../components/CategoryDisplay/CategoryDisplay";
 import { useState, useEffect } from "react";
